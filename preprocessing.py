@@ -6,7 +6,8 @@ import os
 
 def load_data(rapm_path: str = 'data/rapm_input.pkl', 
               gk_path: str = 'data/top5_standard_24.csv',
-              player_mins_path: str = 'data/playermins.1724.csv') -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+              player_mins_path: str = 'data/playermins.1724.csv',
+              base_dir: str = None) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """
     Load all necessary data files for RAPM processing.
     
@@ -18,6 +19,8 @@ def load_data(rapm_path: str = 'data/rapm_input.pkl',
         Path to goalkeeper data CSV
     player_mins_path : str
         Path to player minutes CSV
+    base_dir : str, optional
+        Base directory for data files, used if specific paths not provided
         
     Returns:
     --------
@@ -26,6 +29,24 @@ def load_data(rapm_path: str = 'data/rapm_input.pkl',
         - gk: Goalkeeper dataframe
         - player_mins: Player minutes dataframe
     """
+        # If specific paths aren't provided but base_dir is, construct paths
+    if base_dir is not None:
+        if rapm_path is None:
+            rapm_path = os.path.join(base_dir, 'rapm_input.pkl')
+        if gk_path is None:
+            gk_path = os.path.join(base_dir, 'top5_standard_24.csv')
+        if player_mins_path is None:
+            player_mins_path = os.path.join(base_dir, 'playermins.1724.csv')
+    
+        # Default paths if nothing is provided
+    else:
+        if rapm_path is None:
+            rapm_path = 'rapm_input.pkl'
+        if gk_path is None:
+            gk_path = 'top5_standard_24.csv'
+        if player_mins_path is None:
+            player_mins_path = 'playermins.1724.csv'
+
     try:
         df = pd.read_pickle(rapm_path)
         print(f"Loaded RAPM data with shape: {df.shape}")
@@ -106,9 +127,9 @@ def preprocess_rapm_data(df: pd.DataFrame = None,
                         rapm_path: str = 'data/rapm_input.pkl',
                         gk_path: str = 'data/top5_standard_24.csv',
                         player_mins_path: str = 'data/playermins.1724.csv',
+                        base_dir: str = None,
                         replacement_threshold: int = 2000,
-                        include_xg_per_90: bool = True,
-                        additional_features: List[str] = None) -> pd.DataFrame:
+                        include_xg_per_90: bool = True) -> pd.DataFrame:
     """
     Comprehensive preprocessing for RAPM data:
     1. Load data if not provided
@@ -130,6 +151,8 @@ def preprocess_rapm_data(df: pd.DataFrame = None,
         Path to goalkeeper data CSV (used if gk not provided)
     player_mins_path : str
         Path to player minutes CSV (used if player_mins not provided)
+    base_dir : str, optional
+        Base directory for data files, used if specific paths not provided
     replacement_threshold : int
         Minute threshold for replacement-level players
     include_xg_per_90 : bool
@@ -142,7 +165,7 @@ def preprocess_rapm_data(df: pd.DataFrame = None,
     """
     # Load data if not provided
     if df is None or gk is None or player_mins is None:
-        df, gk, player_mins = load_data(rapm_path, gk_path, player_mins_path)
+        df, gk, player_mins = load_data(rapm_path, gk_path, player_mins_path, base_dir)
     
     if df is None or gk is None or player_mins is None:
         raise ValueError("Failed to load required data files")
