@@ -32,11 +32,47 @@ The system employs a three-stage approach:
 
 
 ### Mathematical Framework
-### RAPM Model:
-y_i = α + Σ(β_j × X_ij) + Σ(γ_k × D_ik) + ε_i
+#### RAPM Model:
+y_i = α + Σ(j=1 to N) β_j × X_ij + Σ(k=1 to N) γ_k × D_ik + ε_i
 
 Where:
 - y_i = target metric for stint i
+- α = intercept term (league average performance)
 - X_ij = indicator for player j on offense
 - D_ik = indicator for player k on defense
-- β_j, γ_k = player coefficients (regularized)
+- β_j, γ_k = player coefficients (estimated via regularization)
+- ε_i = error term ~ N(0, σ²)
+
+#### Regularization Strategy
+To address multicollinearity in lineup data (especially in soccer, a sport where substitutions are limited) and prevent overfitting with high-dimensional sparse data, we apply Ridge (L2) regularization. Our objective function becomes:
+
+β̂ = argmin[||y - Xβ||² + λ||β||²]
+      β
+
+#### Design Matrix Construction with Data Duplication Strategy
+The design matrix X employs a data duplication approach to ensure balanced offensive/defensive attribution:
+
+##### Original Dataset (First Half):
+X_ij = {
+    +w_offensive  if player j is home team player
+    +w_defensive  if player j is away team player
+    0            otherwise
+}
+y_i = home_team_xG_i
+
+##### Duplicated Dataset (Second Half):
+X_ij = {
+    +w_offensive  if player j is away team player  
+    +w_defensive  if player j is home team player
+    0            otherwise
+}
+y_i = away_team_xG_i
+
+
+##### Complete Framework: 
+Each stint generates two data points:
+
+Home perspective: Home players = offense (+), Away players = defense (+), Target = Home xG
+Away perspective: Away players = offense (+), Home players = defense (+), Target = Away xG
+
+Rationale: This duplication strategy allows us to measure a player's offensive and defensive performances each game. The target variable (xG) switches accordingly, maintaining consistency between player assignments and the team performance they're attributed to.
