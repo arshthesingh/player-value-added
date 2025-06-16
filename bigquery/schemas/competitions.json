@@ -1,0 +1,44 @@
+[
+  {
+    "description": "Unique competition identifier",
+    "mode": "REQUIRED",
+    "name": "competition_id",
+    "type": "STRING"
+  },
+  {
+    "description": "Competition name",
+    "mode": "REQUIRED", 
+    "name": "name",
+    "type": "STRING"
+  },
+  {
+    "description": "Competition type",
+    "mode": "NULLABLE",
+    "name": "type", 
+    "type": "STRING"
+  },
+  {
+    "description": "Competition sub-type",
+    "mode": "NULLABLE",
+    "name": "sub_type",
+    "type": "STRING"
+  },
+  {
+    "description": "Country name",
+    "mode": "NULLABLE",
+    "name": "country_name",
+    "type": "STRING"
+  },
+  {
+    "description": "Domestic league code",
+    "mode": "NULLABLE",
+    "name": "domestic_league_code",
+    "type": "STRING"
+  },
+  {
+    "description": "Transfermarkt URL",
+    "mode": "NULLABLE", 
+    "name": "url_tm",
+    "type": "STRING"
+  }
+]

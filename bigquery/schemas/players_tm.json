@@ -1,0 +1,62 @@
+[
+  {
+    "description": "Transfermarkt player ID",
+    "mode": "REQUIRED",
+    "name": "player_id",
+    "type": "INTEGER"
+  },
+  {
+    "description": "Player name",
+    "mode": "REQUIRED",
+    "name": "name",
+    "type": "STRING"
+  },
+  {
+    "description": "Country of citizenship",
+    "mode": "NULLABLE",
+    "name": "country_of_citizenship",
+    "type": "STRING"
+  },
+  {
+    "description": "Date of birth",
+    "mode": "NULLABLE",
+    "name": "date_of_birth",
+    "type": "DATE"
+  },
+  {
+    "description": "Player position",
+    "mode": "NULLABLE",
+    "name": "position",
+    "type": "STRING"
+  },
+  {
+    "description": "Player sub-position",
+    "mode": "NULLABLE",
+    "name": "sub_position",
+    "type": "STRING"
+  },
+  {
+    "description": "Preferred foot",
+    "mode": "NULLABLE",
+    "name": "foot",
+    "type": "STRING"
+  },
+  {
+    "description": "Height in centimeters",
+    "mode": "NULLABLE",
+    "name": "height_in_cm",
+    "type": "FLOAT"
+  },
+  {
+    "description": "Contract expiration date",
+    "mode": "NULLABLE",
+    "name": "contract_expiration_date",
+    "type": "DATE"
+  },
+  {
+    "description": "Transfermarkt URL",
+    "mode": "NULLABLE",
+    "name": "tm_url",
+    "type": "STRING"
+  }
+]

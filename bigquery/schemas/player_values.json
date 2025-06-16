@@ -1,0 +1,26 @@
+[
+  {
+    "description": "Composite key with date",
+    "mode": "REQUIRED",
+    "name": "player_id",
+    "type": "INTEGER"
+  },
+  {
+    "description": "Composite key with player_id",
+    "mode": "REQUIRED",
+    "name": "date",
+    "type": "DATE"
+  },
+  {
+    "description": "Market value in EUR",
+    "mode": "NULLABLE",
+    "name": "market_value_in_eur",
+    "type": "INTEGER"
+  },
+  {
+    "description": "Current club ID",
+    "mode": "NULLABLE",
+    "name": "current_club_id",
+    "type": "INTEGER"
+  }
+]

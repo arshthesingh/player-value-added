@@ -1,0 +1,38 @@
+[
+  {
+    "description": "FBRef URL identifier",
+    "mode": "REQUIRED",
+    "name": "fbref_url",
+    "type": "STRING"
+  },
+  {
+    "description": "Player name",
+    "mode": "NULLABLE",
+    "name": "player",
+    "type": "STRING"
+  },
+  {
+    "description": "Offensive rating",
+    "mode": "NULLABLE",
+    "name": "offense",
+    "type": "FLOAT"
+  },
+  {
+    "description": "Defensive rating",
+    "mode": "NULLABLE",
+    "name": "defense",
+    "type": "FLOAT"
+  },
+  {
+    "description": "Net rating",
+    "mode": "NULLABLE",
+    "name": "net",
+    "type": "FLOAT"
+  },
+  {
+    "description": "Minutes played",
+    "mode": "NULLABLE",
+    "name": "minutes",
+    "type": "INTEGER"
+  }
+]

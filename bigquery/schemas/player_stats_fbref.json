@@ -1,0 +1,92 @@
+[
+  {
+    "description": "Part of composite key",
+    "mode": "REQUIRED",
+    "name": "fbref_url",
+    "type": "STRING"
+  },
+  {
+    "description": "Part of composite key",
+    "mode": "REQUIRED",
+    "name": "season_end_year",
+    "type": "INTEGER"
+  },
+  {
+    "description": "Part of composite key",
+    "mode": "REQUIRED",
+    "name": "squad",
+    "type": "STRING"
+  },
+  {
+    "description": "Competition name",
+    "mode": "NULLABLE",
+    "name": "comp",
+    "type": "STRING"
+  },
+  {
+    "description": "Player name",
+    "mode": "NULLABLE",
+    "name": "player",
+    "type": "STRING"
+  },
+  {
+    "description": "Player nation",
+    "mode": "NULLABLE",
+    "name": "nation",
+    "type": "STRING"
+  },
+  {
+    "description": "Position",
+    "mode": "NULLABLE",
+    "name": "pos",
+    "type": "STRING"
+  },
+  {
+    "description": "Player age",
+    "mode": "NULLABLE",
+    "name": "age",
+    "type": "STRING"
+  },
+  {
+    "description": "Birth year",
+    "mode": "NULLABLE",
+    "name": "born",
+    "type": "INTEGER"
+  },
+  {
+    "description": "Matches played",
+    "mode": "NULLABLE",
+    "name": "mp_playing",
+    "type": "INTEGER"
+  },
+  {
+    "description": "Games started",
+    "mode": "NULLABLE",
+    "name": "starts_playing",
+    "type": "INTEGER"
+  },
+  {
+    "description": "Minutes played",
+    "mode": "NULLABLE",
+    "name": "min_playing",
+    "type": "INTEGER"
+  },
+  {
+    "description": "Minutes per 90",
+    "mode": "NULLABLE",
+    "name": "mins_per_90_playing",
+    "type": "FLOAT"
+  },
+  {
+    "description": "Goals",
+    "mode": "NULLABLE",
+    "name": "gls",
+    "type": "INTEGER"
+  },
+  {
+    "description": "Assists",
+    "mode": "NULLABLE",
+    "name": "ast",
+    "type": "INTEGER"
+  }
+]

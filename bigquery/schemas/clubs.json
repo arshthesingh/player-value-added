@@ -1,0 +1,20 @@
+[
+  {
+    "description": "Unique club identifier",
+    "mode": "REQUIRED",
+    "name": "club_id",
+    "type": "INTEGER"
+  },
+  {
+    "description": "Club name",
+    "mode": "REQUIRED",
+    "name": "name",
+    "type": "STRING"
+  },
+  {
+    "description": "Links to competition",
+    "mode": "NULLABLE",
+    "name": "domestic_competition_id",
+    "type": "STRING"
+  }
+]

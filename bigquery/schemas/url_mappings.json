@@ -1,0 +1,14 @@
+[
+  {
+    "description": "FBRef player URL",
+    "mode": "REQUIRED",
+    "name": "fbref_url",
+    "type": "STRING"
+  },
+  {
+    "description": "Transfermarkt player URL",
+    "mode": "NULLABLE",
+    "name": "tm_url",
+    "type": "STRING"
+  }
+]
