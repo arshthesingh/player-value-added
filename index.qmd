@@ -1,0 +1,12 @@
+---
+title: "Performance Analytics: Statistical Efficiency Modeling"
+subtitle: "A data science portfolio project"
+---
+
+## Project Overview
+
+Coming soon - advanced statistical modeling project demonstrating performance analysis techniques.
+
+## Status
+
+🚧 Site under construction - adding content soon!
