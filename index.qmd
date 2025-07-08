@@ -1,12 +1,138 @@
 ---
-title: "Performance Analytics: Statistical Efficiency Modeling"
-subtitle: "A data science portfolio project"
+title: "Soccer Analytics Portfolio"
+subtitle: "From Data Revolution to $100M+ Insights"
+author: "Arshdeep Singh"
+date: last-modified
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-title: "Navigation"
+    code-fold: true
+    theme: cosmo
+    css: styles.css
+    grid:
+      sidebar-width: 300px
+      body-width: 900px
+      margin-width: 200px
+execute:
+  echo: false
+  warning: false
 ---
 
-## Project Overview
+::: {.hero-section}
+## Part 1: Building a Better Solution: From Inspiration to Implementation
 
-Coming soon - advanced statistical modeling project demonstrating performance analysis techniques.
+Building a modern analytical framework for soccer with quantified business impact
 
-## Status
+::: {.stats-grid}
+::: {.stat-box}
+**€50M+**  
+*Wage inefficiencies identified*
+:::
 
-🚧 Site under construction - adding content soon!
+::: {.stat-box}
+**500K+**  
+*Event records analyzed*
+:::
+
+::: {.stat-box}
+**5 Leagues**  
+*Premier League, La Liga, Serie A, Bundesliga, Ligue 1*
+:::
+
+::: {.stat-box}
+**8 Seasons**  
+*Comprehensive historical analysis*
+:::
+:::
+:::
+
+## The Sports Analytics Revolution
+
+Sports occupy a unique place in society—somewhere between entertainment and obsession, between community belonging and personal identity. But beyond the emotional connection, sports represent a massive global business. Teams generate revenue through broadcasting deals, ticket sales, and player transfers, while managing expenses like salaries and facilities. Like any industry seeking competitive advantage, the most successful organizations have embraced data-driven decision making to optimize their resources and gain an edge over competitors.
+
+## Yankees vs. Dodgers
+
+This past autumn, I watched my New York Yankees lose the World Series to the Los Angeles Dodgers—a series where the Yankees were clearly outmatched. The Dodgers' dominance wasn't accidental. Looking at organizational charts across MLB, the Dodgers rank among the top teams in data analysts and engineers. 
+
+![2022 MLB Team Analytics Investment](images/payroll-data-team-mlb.jpg){.feature-image}
+*The Dodgers' investment in analytics (29 analysts, $285M payroll) exemplifies how data-driven organizations build sustainable competitive advantages Credit @JayCuda*
+
+The Dodgers have leveraged their considerable resources to build an analytics team that consistently identifies undervalued talent and avoids costly mistakes. They can spot declining players even when conventional wisdom suggests they're still solid contributors (like their decision to move on from Cody Bellinger). Despite the parity mechanisms in American sports—where weak teams get high draft picks while perennial winners like the Dodgers select 20th or later—they've sustained excellence year after year while maintaining one of baseball's best farm systems. This creates a virtuous cycle: analytics-driven success generates revenue from winning, while developing prospects reduces payroll costs.
+
+Admittedly, the Dodgers benefit from playing in America's second-largest market. But consider the Tampa Bay Rays—a small-market team that has maintained one of MLB's lowest payrolls while remaining consistently competitive, even reaching the 2020 World Series (where they lost to those same Dodgers). These teams share a crucial connection: Andrew Friedman, who served as the Rays' general manager from 2006-2014, transformed Tampa Bay into a competitive force through analytics before taking those same principles to the Dodgers, where he's built what many consider the model franchise in modern sports.
+
+## Beyond Baseball: The Analytics Advantage
+
+This analytical revolution extends beyond baseball, though MLB pioneered sports analytics. Teams like the Oklahoma City Thunder in the NBA and Carolina Hurricanes in the NHL exemplify how smaller-market organizations can compete through data-driven strategies. Even leagues themselves have embraced analytics, with the NFL partnering with AWS to power their Next Gen Stats platform.
+
+## Soccer's Public Data
+
+Soccer data was (and still is) notoriously difficult to access publicly, and as a fan, it seemed like the analytics community lagged behind American leagues. This has changed dramatically in recent years. For example, Liverpool—owned by the same group that owns the Red Sox—efficiently rebuilt from mediocrity to become one of Europe's dominant forces, identifying lesser known players and either turning a profit or turning them into high-value contributors. Brighton provides an even more striking example: the club went from near-liquidation to comfortable Premier League status, engineered by owner Tony Bloom, who also owns sports data company Starlizard. Brighton consistently identifies talented players in markets that bigger clubs overlook, developing them and selling them for profit while enjoying the financial benefits of top-flight English football. With the Premier League spending over $1.5 billion during the Summer transfer window and individual transfers reaching $100M+, the stakes for accurate player evaluation have never been higher.
+
+## The Academic Challenge
+
+During my Master's program, I searched for the perfect soccer analytics project—something that would showcase everything I'd learned while tackling a genuinely challenging problem. I was fascinated by FanGraphs, the premier baseball analytics site, and particularly their implementation of Wins Above Replacement (WAR). WAR answers a fundamental question: Aaron Judge is obviously better than an average player, but exactly how much better? While not perfect, WAR provides an excellent starting point for any baseball debate.
+
+Adapting this methodology to soccer presented an incredible challenge. Soccer's continuous play, positional fluidity, and complex team interactions make individual evaluation far more difficult than baseball's discrete, individualized events. But as I developed stronger technical skills and gained access to better data, I realized this challenge represented the perfect intersection of my interests: a technically demanding sports analytics problem with clear business applications.
+
+## Building a Comprehensive Framework
+
+WAR is fundamentally a descriptive metric, not a predictive one. It enables fans to debate what players have accomplished and helps club executives identify the value players brought to their teams. Soccer involves significant randomness—the sample space of possible events is extremely large, and factors like injuries and weather introduce significant randomness. This unpredictability is what makes sports entertaining; data enhances understanding without eliminating the magic.
+
+Despite this inherent variance, analytical insights remain invaluable for decision-making. My goal became creating a comprehensive framework to evaluate how players in Europe's top five leagues contribute to their teams, using Expected Goals (xG) as the statistical foundation. This system needed to serve multiple audiences: accessible enough for fan debates, sophisticated enough for boardroom decisions, and transparent enough that its methodology could be examined and understood.
+
+## What's Next: Technical Deep Dive
+
+Having established the personal motivation, business context, and analytical opportunity, we now turn to the technical implementation. The following sections detail how this vision became reality, beginning with the foundational RAPM methodology in Part 2.
+
+## Explore the Complete Framework
+
+::: {.nav-grid}
+::: {.nav-card}
+### 🔬 Core Methodology
+[**RAPM Development**](rapm-methodology.qmd)  
+*Adapting basketball's gold standard for soccer*
+
+[**SPM Enhancement**](spm-methodology.qmd)  
+*Bayesian improvements for better accuracy*
+
+[**Business Metrics**](gar-war-par.qmd)  
+*GAR/WAR/PAR implementation*
+:::
+
+::: {.nav-card}
+### ✅ Validation & Results
+[**Model Validation**](validation.qmd)  
+*Proving accuracy against benchmarks*
+
+[**Business Insights**](business-insights.qmd)  
+*€50M inefficiency analysis*
+
+[**Key Findings**](findings.qmd)  
+*What the data revealed*
+:::
+
+::: {.nav-card}
+### 🛠️ Technical Details
+[**Data Pipeline**](data-pipeline.qmd)  
+*Cloud infrastructure & ETL*
+
+[**Methodology Overview**](methodology-overview.qmd)  
+*Academic foundations*
+
+[**Code Repository**](https://github.com/yourusername/repo){target="_blank"}  
+*Full implementation*
+:::
+:::
+
+## Key Visualizations
+
+::: {.preview-grid}
+![Team Efficiency Analysis](images/team-efficiency-preview.png){.preview-image}
+*Premier League wage efficiency analysis revealing €50M+ in misallocation*
+
+![Player Ratings Validation](images/validation-preview.png){.preview-image}  
+*Model validation showing strong correlation with industry benchmarks*
+:::
