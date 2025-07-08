@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Your Name">
-<meta name="dcterms.date" content="2025-07-07">
 
-<title>Soccer Analytics Portfolio – Performance Analytics: Statistical Efficiency Modeling</title>
+<title>RAPM – Performance Analytics: Statistical Efficiency Modeling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -41,7 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-43cf0ab3cbfba30bb4e14216f34e884c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,6 +68,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -92,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
@@ -108,19 +135,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Navigation</h2>
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#part-1-building-a-better-solution-from-inspiration-to-implementation" id="toc-part-1-building-a-better-solution-from-inspiration-to-implementation" class="nav-link active" data-scroll-target="#part-1-building-a-better-solution-from-inspiration-to-implementation">Part 1: Building a Better Solution: From Inspiration to Implementation</a></li>
-  <li><a href="#the-sports-analytics-revolution" id="toc-the-sports-analytics-revolution" class="nav-link" data-scroll-target="#the-sports-analytics-revolution">The Sports Analytics Revolution</a></li>
-  <li><a href="#yankees-vs.-dodgers" id="toc-yankees-vs.-dodgers" class="nav-link" data-scroll-target="#yankees-vs.-dodgers">Yankees vs.&nbsp;Dodgers</a></li>
-  <li><a href="#beyond-baseball-the-analytics-advantage" id="toc-beyond-baseball-the-analytics-advantage" class="nav-link" data-scroll-target="#beyond-baseball-the-analytics-advantage">Beyond Baseball: The Analytics Advantage</a></li>
-  <li><a href="#soccers-public-data" id="toc-soccers-public-data" class="nav-link" data-scroll-target="#soccers-public-data">Soccer’s Public Data</a></li>
-  <li><a href="#the-academic-challenge" id="toc-the-academic-challenge" class="nav-link" data-scroll-target="#the-academic-challenge">The Academic Challenge</a></li>
-  <li><a href="#building-a-comprehensive-framework" id="toc-building-a-comprehensive-framework" class="nav-link" data-scroll-target="#building-a-comprehensive-framework">Building a Comprehensive Framework</a></li>
-  <li><a href="#whats-next-technical-deep-dive" id="toc-whats-next-technical-deep-dive" class="nav-link" data-scroll-target="#whats-next-technical-deep-dive">What’s Next: Technical Deep Dive</a></li>
-  <li><a href="#explore-the-complete-framework" id="toc-explore-the-complete-framework" class="nav-link" data-scroll-target="#explore-the-complete-framework">Explore the Complete Framework</a></li>
-  <li><a href="#key-visualizations" id="toc-key-visualizations" class="nav-link" data-scroll-target="#key-visualizations">Key Visualizations</a></li>
+  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary"><span class="header-section-number">1</span> Executive Summary</a></li>
+  <li><a href="#mathematical-foundation" id="toc-mathematical-foundation" class="nav-link" data-scroll-target="#mathematical-foundation"><span class="header-section-number">2</span> Mathematical Foundation</a></li>
+  <li><a href="#implementation-details" id="toc-implementation-details" class="nav-link" data-scroll-target="#implementation-details"><span class="header-section-number">3</span> Implementation Details</a></li>
   </ul>
 </nav>
     </div>
@@ -129,27 +149,15 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Soccer Analytics Portfolio</h1>
-<p class="subtitle lead">From Data Revolution to $100M+ Insights</p>
+<h1 class="title">RAPM</h1>
+<p class="subtitle lead">Regularized Adjusted Plus-Minus for Soccer</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Your Name </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 7, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -159,100 +167,30 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="part-1-building-a-better-solution-from-inspiration-to-implementation" class="level2 hero-section">
-<h2 class="anchored" data-anchor-id="part-1-building-a-better-solution-from-inspiration-to-implementation">Part 1: Building a Better Solution: From Inspiration to Implementation</h2>
-<p>Building a modern analytical framework for soccer with quantified business impact</p>
-<div class="stats-grid">
-<div class="stat-box">
-<p><strong>€50M+</strong><br>
-<em>Wage inefficiencies identified</em></p>
+<section id="executive-summary" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="executive-summary"><span class="header-section-number">1</span> Executive Summary</h2>
+<p>[Brief business problem &amp; solution]</p>
+</section>
+<section id="mathematical-foundation" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="mathematical-foundation"><span class="header-section-number">2</span> Mathematical Foundation</h2>
+<p><span class="math display">\[\min_{\beta} \frac{1}{2n} ||y - X\beta||_2^2 + \alpha ||\beta||_2^2\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="stat-box">
-<p><strong>500K+</strong><br>
-<em>Event records analyzed</em></p>
-</div>
-<div class="stat-box">
-<p><strong>5 Leagues</strong><br>
-<em>Premier League, La Liga, Serie A, Bundesliga, Ligue 1</em></p>
-</div>
-<div class="stat-box">
-<p><strong>8 Seasons</strong><br>
-<em>Comprehensive historical analysis</em></p>
+<div class="callout-title-container flex-fill">
+Key Innovation
 </div>
 </div>
-</section>
-<section id="the-sports-analytics-revolution" class="level2">
-<h2 class="anchored" data-anchor-id="the-sports-analytics-revolution">The Sports Analytics Revolution</h2>
-<p>Sports occupy a unique place in society—somewhere between entertainment and obsession, between community belonging and personal identity. But beyond the emotional connection, sports represent a massive global business. Teams generate revenue through broadcasting deals, ticket sales, and player transfers, while managing expenses like salaries and facilities. Like any industry seeking competitive advantage, the most successful organizations have embraced data-driven decision making to optimize their resources and gain an edge over competitors.</p>
-</section>
-<section id="yankees-vs.-dodgers" class="level2">
-<h2 class="anchored" data-anchor-id="yankees-vs.-dodgers">Yankees vs.&nbsp;Dodgers</h2>
-<p>This past autumn, I watched my New York Yankees lose the World Series to the Los Angeles Dodgers—a series where the Yankees were clearly outmatched. The Dodgers’ dominance wasn’t accidental. Looking at organizational charts across MLB, the Dodgers rank among the top teams in data analysts and engineers.</p>
-<p><img src="images/payroll-data-team-mlb.jpg" class="feature-image img-fluid" alt="2022 MLB Team Analytics Investment"> <em>The Dodgers’ investment in analytics (29 analysts, $285M payroll) exemplifies how data-driven organizations build sustainable competitive advantages Credit <span class="citation" data-cites="JayCuda">@JayCuda</span></em></p>
-<p>The Dodgers have leveraged their considerable resources to build an analytics team that consistently identifies undervalued talent and avoids costly mistakes. They can spot declining players even when conventional wisdom suggests they’re still solid contributors (like their decision to move on from Cody Bellinger). Despite the parity mechanisms in American sports—where weak teams get high draft picks while perennial winners like the Dodgers select 20th or later—they’ve sustained excellence year after year while maintaining one of baseball’s best farm systems. This creates a virtuous cycle: analytics-driven success generates revenue from winning, while developing prospects reduces payroll costs.</p>
-<p>Admittedly, the Dodgers benefit from playing in America’s second-largest market. But consider the Tampa Bay Rays—a small-market team that has maintained one of MLB’s lowest payrolls while remaining consistently competitive, even reaching the 2020 World Series (where they lost to those same Dodgers). These teams share a crucial connection: Andrew Friedman, who served as the Rays’ general manager from 2006-2014, transformed Tampa Bay into a competitive force through analytics before taking those same principles to the Dodgers, where he’s built what many consider the model franchise in modern sports.</p>
-</section>
-<section id="beyond-baseball-the-analytics-advantage" class="level2">
-<h2 class="anchored" data-anchor-id="beyond-baseball-the-analytics-advantage">Beyond Baseball: The Analytics Advantage</h2>
-<p>This analytical revolution extends beyond baseball, though MLB pioneered sports analytics. Teams like the Oklahoma City Thunder in the NBA and Carolina Hurricanes in the NHL exemplify how smaller-market organizations can compete through data-driven strategies. Even leagues themselves have embraced analytics, with the NFL partnering with AWS to power their Next Gen Stats platform.</p>
-</section>
-<section id="soccers-public-data" class="level2">
-<h2 class="anchored" data-anchor-id="soccers-public-data">Soccer’s Public Data</h2>
-<p>Soccer data was (and still is) notoriously difficult to access publicly, and as a fan, it seemed like the analytics community lagged behind American leagues. This has changed dramatically in recent years. For example, Liverpool—owned by the same group that owns the Red Sox—efficiently rebuilt from mediocrity to become one of Europe’s dominant forces, identifying lesser known players and either turning a profit or turning them into high-value contributors. Brighton provides an even more striking example: the club went from near-liquidation to comfortable Premier League status, engineered by owner Tony Bloom, who also owns sports data company Starlizard. Brighton consistently identifies talented players in markets that bigger clubs overlook, developing them and selling them for profit while enjoying the financial benefits of top-flight English football. With the Premier League spending over $1.5 billion during the Summer transfer window and individual transfers reaching $100M+, the stakes for accurate player evaluation have never been higher.</p>
-</section>
-<section id="the-academic-challenge" class="level2">
-<h2 class="anchored" data-anchor-id="the-academic-challenge">The Academic Challenge</h2>
-<p>During my Master’s program, I searched for the perfect soccer analytics project—something that would showcase everything I’d learned while tackling a genuinely challenging problem. I was fascinated by FanGraphs, the premier baseball analytics site, and particularly their implementation of Wins Above Replacement (WAR). WAR answers a fundamental question: Aaron Judge is obviously better than an average player, but exactly how much better? While not perfect, WAR provides an excellent starting point for any baseball debate.</p>
-<p>Adapting this methodology to soccer presented an incredible challenge. Soccer’s continuous play, positional fluidity, and complex team interactions make individual evaluation far more difficult than baseball’s discrete, individualized events. But as I developed stronger technical skills and gained access to better data, I realized this challenge represented the perfect intersection of my interests: a technically demanding sports analytics problem with clear business applications.</p>
-</section>
-<section id="building-a-comprehensive-framework" class="level2">
-<h2 class="anchored" data-anchor-id="building-a-comprehensive-framework">Building a Comprehensive Framework</h2>
-<p>WAR is fundamentally a descriptive metric, not a predictive one. It enables fans to debate what players have accomplished and helps club executives identify the value players brought to their teams. Soccer involves significant randomness—the sample space of possible events is extremely large, and factors like injuries and weather introduce significant randomness. This unpredictability is what makes sports entertaining; data enhances understanding without eliminating the magic.</p>
-<p>Despite this inherent variance, analytical insights remain invaluable for decision-making. My goal became creating a comprehensive framework to evaluate how players in Europe’s top five leagues contribute to their teams, using Expected Goals (xG) as the statistical foundation. This system needed to serve multiple audiences: accessible enough for fan debates, sophisticated enough for boardroom decisions, and transparent enough that its methodology could be examined and understood.</p>
-</section>
-<section id="whats-next-technical-deep-dive" class="level2">
-<h2 class="anchored" data-anchor-id="whats-next-technical-deep-dive">What’s Next: Technical Deep Dive</h2>
-<p>Having established the personal motivation, business context, and analytical opportunity, we now turn to the technical implementation. The following sections detail how this vision became reality, beginning with the foundational RAPM methodology in Part 2.</p>
-</section>
-<section id="explore-the-complete-framework" class="level2">
-<h2 class="anchored" data-anchor-id="explore-the-complete-framework">Explore the Complete Framework</h2>
-<div class="nav-grid">
-<section id="core-methodology" class="level3 nav-card">
-<h3 class="anchored" data-anchor-id="core-methodology">🔬 Core Methodology</h3>
-<p><a href="rapm-methodology.qmd"><strong>RAPM Development</strong></a><br>
-<em>Adapting basketball’s gold standard for soccer</em></p>
-<p><a href="spm-methodology.qmd"><strong>SPM Enhancement</strong></a><br>
-<em>Bayesian improvements for better accuracy</em></p>
-<p><a href="gar-war-par.qmd"><strong>Business Metrics</strong></a><br>
-<em>GAR/WAR/PAR implementation</em></p>
-</section>
-<section id="validation-results" class="level3 nav-card">
-<h3 class="anchored" data-anchor-id="validation-results">✅ Validation &amp; Results</h3>
-<p><a href="validation.qmd"><strong>Model Validation</strong></a><br>
-<em>Proving accuracy against benchmarks</em></p>
-<p><a href="business-insights.qmd"><strong>Business Insights</strong></a><br>
-<em>€50M inefficiency analysis</em></p>
-<p><a href="findings.qmd"><strong>Key Findings</strong></a><br>
-<em>What the data revealed</em></p>
-</section>
-<section id="technical-details" class="level3 nav-card">
-<h3 class="anchored" data-anchor-id="technical-details">🛠️ Technical Details</h3>
-<p><a href="data-pipeline.qmd"><strong>Data Pipeline</strong></a><br>
-<em>Cloud infrastructure &amp; ETL</em></p>
-<p><a href="methodology-overview.qmd"><strong>Methodology Overview</strong></a><br>
-<em>Academic foundations</em></p>
-<p><a href="https://github.com/yourusername/repo" target="_blank"><strong>Code Repository</strong></a><br>
-<em>Full implementation</em></p>
-</section>
+<div class="callout-body-container callout-body">
+<p>Soccer-specific stint boundaries adapt basketball methodology for continuous play</p>
+</div>
 </div>
 </section>
-<section id="key-visualizations" class="level2">
-<h2 class="anchored" data-anchor-id="key-visualizations">Key Visualizations</h2>
-<div class="preview-grid">
-<p><img src="images/team-efficiency-preview.png" class="preview-image img-fluid" alt="Team Efficiency Analysis"> <em>Premier League wage efficiency analysis revealing €50M+ in misallocation</em></p>
-<p><img src="images/validation-preview.png" class="preview-image img-fluid" alt="Player Ratings Validation"><br>
-<em>Model validation showing strong correlation with industry benchmarks</em></p>
-</div>
+<section id="implementation-details" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="implementation-details"><span class="header-section-number">3</span> Implementation Details</h2>
+<p>#| code-fold: true [Your actual code with clean comments]</p>
 
 
 </section>
